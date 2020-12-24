@@ -199,8 +199,5 @@ var navigationVue = new Vue({
     "navigation-search-and-private": navigationSearchAndPrivate,
     "navigation-menu": navigationMenu,
   },
-  data: {
-    notificationDropDownOpen: false,
-    profileDropDownOpen: false,
-  },
+
 });
