@@ -7,20 +7,39 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="banner.css" />
     <script defer src="navigation.js"></script>
+    <script defer src="banner.js"></script>
+    <script defer src="transition-component-test.js"></script>
   </head>
 
   <!--navigation-->
 
   <body>
     <nav id="navigation" class="navigation">
-      <a href="main.html">
-        <img src="src/dacon-title-logo.svg" alt="dacon" />
+      <a class="member" href="main.html">
+        <img src="src/img/dacon-title-logo.svg" alt="dacon" />
       </a>
       <navigation-menu></navigation-menu>
       <navigation-search-and-private></navigation-search-and-private>
     </nav>
 
-    <div class="banner"></div>
+    <div id="banner-wrap" class="banner-wrap">
+      <transition name="component-fade" mode="out-in">
+        <component
+          v-bind:is="banner"
+          v-on:move-left="moveLeft"
+          v-on:move-right="moveRight"
+        ></component>
+      </transition>
+      <button v-on:click="banner= 'v-b'">change</button>
+    </div>
+
+    <div id="transition-components-demo">
+      <transition name="component-fade" mode="out-in">
+        <component v-bind:is="view"></component>
+      </transition>
+      <button v-on:click="view= 'v-b'">change</button>
+    </div>
   </body>
 </html>

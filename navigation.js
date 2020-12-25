@@ -7,8 +7,9 @@ var MainMenus = {
       <li class="menu" v-for= "menu in menus">
         <a v-bind:href="menu.href"> {{menu.title}} </a>
       </li>
-
-      <li class="menu-more">더보기</li>
+      <li class="menu">
+        <span id="menu-more">더보기</span>
+      </li>
     </ul>
   `,
 };
@@ -41,9 +42,9 @@ var profileDropDown = {
     userName: String,
   },
   template: `
-    <div>
-      <div> userName </div>
-      <ul>
+    <div class="profile-drop-down">
+      <div class="profile-drop-down-top"> {{userName}} </div>
+      <ul class="profile-drop-down-bottom">
         <li><a href="myprofile.html">프로필</a></li>
         <li><a href="account.html">계정 관리</a></li>
         <li><a href="landing.html">로그아웃</a></li>
@@ -56,58 +57,100 @@ var notificationDropDown = {
   props: {
     notificationCount: Number,
   },
+  data: function () {
+    return {
+      unread: 2,
+      notifications: [
+        {
+          content: "데이콘에 가입하신 것을 진심으로 환경합니다.",
+          time: "1달전",
+          isRead: true,
+        },
+        {
+          content: "컴퓨터 비전 학습 경진대회 대회종료가 임박하였습니다.",
+          time: "2주전",
+          isRead: true,
+        },
+      ],
+    };
+  },
   // style="cursor:pointer;" a 태그가 아니더라도 마우스 커서를 손 모양으로 변경
   template: `
-    <div>
-      <span>알림 {{notificationCount}}</span>
-      <ul style="cursor:pointer;">
+
+  <div class="notification-drop-down">
+    <div class="notification-drop-down-top">
+      <div class="notification-top-left">
+        <span>알림</span>
+        <span id="notification-count">{{notificationCount}}</span>
+      </div>
+
+      <ul style="cursor:pointer;" class="list">
         <li v-on:click = "$emit('check-all')">모두 읽음</li>
         <li v-on:click = "$emit('delete-all')">모두 삭제</li>
-        <li v-on:click = "$emit('switch-notificationDropDown')">닫기</li>
+        <li v-on:click = "$emit('switch-notification-drop-down')">닫기</li>
       </ul>
+
     </div>
+
+    <div class="notification-contents">
+      <div class="notification-content" v-for = "notification in notifications">
+        <div class="comment-and-time">
+          <span class="notification-comment" v-if="!notification.isRead" style="color: --dacon-color;">{{notification.content}}</span>
+          <span class="notification-time" v-if="!notification.isRead" style="color: --dacon-color;">{{notification.time}}</span>
+          <span class="notification-comment" v-if="notification.isRead" style="color: --light-gray;">{{notification.content}}</span>
+          <span class="notification-time" v-if="notification.isRead" style="color: --light-gray;">{{notification.time}}</span>
+        </div>
+        <img class="times-solid" src="src/img/times-solid.svg" style="color: --dacon-color; height: 0.8rem; width: 0.8rem;">
+      </div>
+    </div>
+  </div>
+
   `,
 };
 
 //--------------- Right Top Composition ---------------
 
-var Private = {
+var navigationSearchAndPrivate = {
   data: function () {
     return {
       notificationDropDownOpen: false,
       profileDropDownOpen: false,
-      unread: 2,
-      notification: [
-        {
-          content: "데이콘에 가입하신 것을 진심으로 환경합니다.",
-          time: "1달전",
-          isRead: 0,
-        },
-        {
-          content: "컴퓨터 비전 학습 경진대회 대회종료가 임박하였습니다.",
-          time: "2주전",
-          isRead: 0,
-        },
-      ],
     };
   },
   // img의 확장자가 현재 없음. 하지만 img태그 내부이기 때문에 작동함. (site 에서 받아올 때 확장자가 없음)
   template: `
-  <span>
-    <img src="src/notification-icon.svg" alt="search" style="cursor:pointer;"
-    v-on:click="controlNotiAndProfile('notification')"/>
-    <img src="src/profile-img" alt="search" style="width:40px;height:40px;cursor:pointer;"
-    v-on:click="controlNotiAndProfile('profile')"/> 
-    <notification-drop-down 
-      v-on:check-all="checkAll"
-      v-on:delete-all="deleteAll"
-      v-on:switch-notificationDropDown="notificationDropDownOpen = !notificationDropDownOpen"
-      v-show="notificationDropDownOpen"
-    ></notification-drop-down>
-    <profile-drop-down
-      v-show="profileDropDownOpen"
-    ></profile-drop-down>
-  </span>
+  
+  <div class="right-top">
+  
+    <div class="navigation-search-and-private">
+      <div class="member">
+        <a href="search.html">
+          <img id="search" src="src/img/search-icon.svg" alt="search" />
+        </a>
+      </div>
+      <div class="member">
+        <img src="src/img/notification-icon.svg" alt="search" style="cursor:pointer;"
+        v-on:click="controlNotiAndProfile('notification')"/>
+      </div>
+      <div class="member">
+        <img src="src/img/profile-img" alt="search" style="width:40px;height:40px;cursor:pointer;"
+        v-on:click="controlNotiAndProfile('profile')"/> 
+      </div>
+    </div>
+    <div class="dropdown">
+      <notification-drop-down 
+        v-on:check-all="checkAll"
+        v-on:delete-all="deleteAll"
+        v-on:switch-notification-drop-down="notificationDropDownOpen = !notificationDropDownOpen"
+        v-show="notificationDropDownOpen"
+        v-bind:notificationCount="2"
+      ></notification-drop-down>
+      <profile-drop-down
+        v-show="profileDropDownOpen"
+        v-bind:userName="'junyoung'"
+      ></profile-drop-down>
+    </div>
+  </div>
   `,
   components: {
     "notification-drop-down": notificationDropDown,
@@ -116,12 +159,12 @@ var Private = {
 
   methods: {
     checkAll: function () {
-      unread = 0;
+      this.unread = 0;
     },
     deleteAll: function () {
-      notification = [];
+      this.notification = [];
     },
-    switchNotificationDropDown: function () {
+    switchnotificationDropDown: function () {
       this.notificationDropDownOpen = !this.notificationDropDownOpen;
     },
     switchProfileDropDown: function () {
@@ -181,23 +224,10 @@ var Private = {
   },
 };
 
-var navigationSearchAndPrivate = {
-  template: `
-  <div class="navigation-search-and-private">
-    <a href="search.html">
-      <img src="src/search-icon.svg" alt="search" />
-    </a>
-    <private></private>
-  </div>
-  `,
-  components: { private: Private },
-};
-
 var navigationVue = new Vue({
   el: "#navigation",
   components: {
     "navigation-search-and-private": navigationSearchAndPrivate,
     "navigation-menu": navigationMenu,
   },
-
 });
