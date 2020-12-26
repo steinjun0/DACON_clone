@@ -7,14 +7,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="navigation.css" />
     <link rel="stylesheet" type="text/css" href="banner.css" />
     <script defer src="navigation.js"></script>
     <script defer src="banner.js"></script>
-    <script defer src="transition-component-test.js"></script>
   </head>
 
   <!--navigation-->
-
+  <style>
+    body {
+    }
+  </style>
   <body>
     <nav id="navigation" class="navigation">
       <a class="member" href="main.html">
@@ -27,19 +30,13 @@
     <div id="banner-wrap" class="banner-wrap">
       <transition name="component-fade" mode="out-in">
         <component
-          v-bind:is="banner"
+          v-bind:is="bannerComponent"
+          v-bind:banner-contents="bannerContents"
+          v-bind:banner-index="bannerIndex"
           v-on:move-left="moveLeft"
           v-on:move-right="moveRight"
         ></component>
       </transition>
-      <button v-on:click="banner= 'v-b'">change</button>
-    </div>
-
-    <div id="transition-components-demo">
-      <transition name="component-fade" mode="out-in">
-        <component v-bind:is="view"></component>
-      </transition>
-      <button v-on:click="view= 'v-b'">change</button>
     </div>
   </body>
 </html>

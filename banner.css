@@ -1,5 +1,78 @@
-.component-fade-enter-active, .component-fade-leave-active {
-  transition: opacity .3s ease;
+/* banner-wrap */
+
+.banner-wrap {
+  display: flex;
+  width: 100vw;
+  height: 40vh;
+}
+
+.banner-wrap .banner-contents {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-size: auto 100%;
+  background-position-x: 50%;
+}
+
+.banner-wrap .banner-contents .banner-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: var(--white-color);
+  margin: 0 5vh;
+}
+
+/* banner-move-button */
+
+.banner-content .banner-move-button {
+  height: 2vh;
+  width: 2vh;
+
+  transform: rotate(45deg);
+}
+
+/* !!! css에서 class 선택자와 id 선택자를 섞어서 쓰는것이 안된다.
+(tag 선택자와 class 선택자는 가능)  */
+
+/* 
+  1. 퍼센트가 200퍼 이상.. 일반적인 경우를 벗어나면
+    다른 항목과의 충돌로 height width가 무너질 수 있다.
+  2. rotate 했기 때문에, padding margin도 전부 rotate 된다.
+  3. 위/아래 꺽쇠 길이가 달라서 찾느라 시간이 좀 걸림
+*/
+
+#banner-left-button {
+  border: solid;
+  border-top: 3px;
+  border-right: 3px;
+  border-color: var(--white-color);
+}
+
+#banner-right-button {
+  border: solid;
+  border-left: 3px;
+  border-bottom: 3px;
+  border-color: var(--white-color);
+}
+
+/* banner-text */
+.banner-content .banner-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  color: var(--white-color);
+}
+
+/* transition */
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.3s ease;
 }
 .component-fade-enter, .component-fade-leave-to
 /* .component-fade-leave-active below version 2.1.8 */ {
