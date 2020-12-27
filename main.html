@@ -9,8 +9,16 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="navigation.css" />
     <link rel="stylesheet" type="text/css" href="banner.css" />
+    <link rel="stylesheet" type="text/css" href="status.css" />
     <script defer src="navigation.js"></script>
     <script defer src="banner.js"></script>
+    <script defer src="dacon-status.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <!--navigation-->
@@ -28,7 +36,7 @@
     </nav>
 
     <div id="banner-wrap" class="banner-wrap">
-      <transition name="component-fade" mode="out-in">
+      <transition name="component-fade" mode="in-out">
         <component
           v-bind:is="bannerComponent"
           v-bind:banner-contents="bannerContents"
@@ -37,6 +45,56 @@
           v-on:move-right="moveRight"
         ></component>
       </transition>
+      <div class="index-icons">
+        <transition name="banner-index">
+          <div
+            class="on"
+            id="banner-index-0-on"
+            v-if="bannerIndex == 0"
+            key="on"
+          >
+            111
+          </div>
+          <div class="off" id="banner-index-0-off" v-else key="off">aaa</div>
+        </transition>
+        <transition name="banner-index">
+          <div
+            class="on"
+            id="banner-index-1-on"
+            v-if="bannerIndex == 1"
+            key="on"
+          >
+            222
+          </div>
+          <div class="off" id="banner-index-1-off" v-else key="off">bbb</div>
+        </transition>
+        <transition name="banner-index">
+          <div
+            class="on"
+            id="banner-index-2-on"
+            v-if="bannerIndex == 2"
+            key="on"
+          >
+            333
+          </div>
+          <div class="off" id="banner-index-2-off" v-else key="off">ccc</div>
+        </transition>
+        <transition name="banner-index" mode="out-in">
+          <div
+            class="on"
+            id="banner-index-3-on"
+            v-if="bannerIndex == 3"
+            key="on"
+          >
+            444
+          </div>
+          <div class="off" id="banner-index-3-off" v-else key="off">ddd</div>
+        </transition>
+      </div>
+    </div>
+    
+    <div class="dacon-status-wrap" id="dacon-status-wrap">
+      <dacon-status></dacon-status>
     </div>
   </body>
 </html>

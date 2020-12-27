@@ -2,6 +2,8 @@ Vue.component("banner-content", {
   props: {
     title: String,
     subtitle: String,
+    buttonMessage: String,
+    bannerIndex: Number,
   },
   template: `
     <div class = "banner-content">
@@ -9,8 +11,8 @@ Vue.component("banner-content", {
       <div class="banner-text">
         <div class="banner-title">{{title}}</div>
         <div class="banner-subtitle">{{subtitle}}</div>
-        <button class="participation">대회 참여</button> 
-        <div class="index-icon"></div>
+        <button class="participation-button">{{buttonMessage}}</button> 
+        
       </div>
       <div id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')"></div>
     </div>
@@ -18,14 +20,17 @@ Vue.component("banner-content", {
 });
 
 var bannerContentsTemplate =
-  // property에서 변수를 사용하려면 v-bind를 사용해야하기 때문에 아래의 형식으로 작성해야한다.
+  // 1. property에서 변수를 사용하려면 v-bind를 사용해야하기 때문에 아래의 형식으로 작성해야한다.
   // https://stackoverflow.com/questions/35242272/vue-js-data-bind-style-backgroundimage-not-working
   // bannerContents[bannerIndex].imgSrc의 값도 일반적인 값과는 다르다. 아래 참고
+  // 2. button-message를 props에서 받을 때는 buttonMessage로 받는다. kebab, paskal 변환 조심
   `
     <div class="banner-contents" :style="{backgroundImage: 'url(' + bannerContents[bannerIndex].imgSrc + ')' }">
       <banner-content
         v-bind:title="bannerContents[bannerIndex].title"
         v-bind:subtitle="bannerContents[bannerIndex].subtitle"
+        v-bind:button-message="bannerContents[bannerIndex].buttonMessage"
+        v-bind:banner-index="bannerIndex"
         v-on:move-left="$emit('move-left')"
         v-on:move-right="$emit('move-right')"></banner-content>
     </div>
@@ -86,6 +91,7 @@ new Vue({
           "D:/Programming/WEB/dacon-clone/src/img/space-information-banner.png",
         title: "공간정보 탐색적 데이터 분석 경진대회",
         subtitle: "국토도시 빅데이터 인터스쿨 | 국토연구원 | 시각화 | 유저평가",
+        buttonMessage: "대회 참여",
       },
       {
         imgSrc:
@@ -93,16 +99,19 @@ new Vue({
         title: "태양광 발전량 예측 AI 경진대회",
         subtitle:
           "지역의 기상 데이터와 과거 발전량 데이터를 활용하여, 시간대별 태양광 발전량을 예측",
+        buttonMessage: "대회 참여",
       },
       {
         imgSrc: "D:/Programming/WEB/dacon-clone/src/img/dacon-cup-banner.png",
         title: "2020 DACON CUP",
         subtitle: "월간 데이콘 | 시계열 | 정형 | 데이콘 데이터",
+        buttonMessage: "대회 참여",
       },
       {
         imgSrc: "D:/Programming/WEB/dacon-clone/src/img/recruit-banner.png",
         title: "데이콘에서 개발자를 채용합니다.",
         subtitle: "데이콘에서 vue.js + nuxt.js 개발자를 채용합니다.",
+        buttonMessage: "더보기",
       },
     ],
     bannerIndex: 0,
