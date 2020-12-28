@@ -1,0 +1,108 @@
+.dacon-status-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 6%;
+  background-color: var(--super-light-gray);
+}
+
+.dacon-status-wrap .status-list {
+  padding: 0;
+  margin: 0.7rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.status-list li {
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--dacon-color);
+}
+
+.status-list li img {
+  padding: 0 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.status-list li .number {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.status-list li .title {
+  padding: 0 0.4rem;
+  font-size: calc(1rem / 100);
+  font-weight: 300;
+  margin-top: auto;
+  margin-bottom: calc(1vh / 5);
+  /* 폰트 사이즈가 맞지 않아, 아래 정렬이 되지 않음.
+      따라서, margin-bottom을 추가하여 아래 정렬을 맞춤 */
+}
+
+@media screen and (max-width: 910px) {
+  .dacon-status-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 6%;
+    background-color: var(--super-light-gray);
+  }
+
+  .dacon-status-wrap .status-list {
+    padding: 0;
+    margin: 0.7rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .dacon-status-wrap .status-list {
+    padding: 0;
+    margin: 0.7rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .status-list li {
+    padding: 0 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--dacon-color);
+  }
+
+  .status-list li img {
+    padding: 0 0.8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .status-list li .number {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .status-list li .title {
+    padding: 0 0.4rem;
+    font-size: calc(1rem / 100);
+    font-weight: 300;
+    margin-top: auto;
+    margin-bottom: calc(1vh / 5);
+    /* 폰트 사이즈가 맞지 않아, 아래 정렬이 되지 않음.
+      따라서, margin-bottom을 추가하여 아래 정렬을 맞춤 */
+  }
+}
+@media screen and (max-width: 650px) {
+  .status-list .team-count {
+    display: none;
+  }
+}

@@ -1,0 +1,178 @@
+.competition-list-wrap {
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible;
+  align-items: center;
+  padding: 0 2rem 0 1rem;
+}
+
+.competition-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  max-width: 64rem;
+  overflow-y: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.competition-list .competition-list-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 6.9rem;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.competition-list .competition-list-element:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.competition-list-element .competition-img {
+  height: 5rem;
+  width: 5rem;
+  padding: 0.8rem;
+  padding-left: 0;
+}
+
+.competition-list-element .element-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: baseline;
+  height: 5rem;
+  color: var(--dacon-color);
+}
+
+.element-left .competition-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.element-left .competition-keyword {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-gray);
+  margin-top: 0.2rem;
+}
+
+.competition-list-element .sponsor-logo-list {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin-top: auto;
+}
+
+.sponsor-logo-list .sponsor-logo {
+  height: 1.5rem;
+  width: auto;
+}
+
+.competition-list-element .element-right {
+  padding: 0;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 5rem;
+  font-weight: 400;
+  color: var(--text-gray);
+}
+
+.element-right .light-and-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.element-right .status-light {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 100%;
+  background-color: rgb(229, 169, 17);
+}
+
+.element-right .status-text {
+  font-size: 0.8rem;
+  padding-left: 0.4rem;
+}
+
+.element-right .dday-and-participants {
+  font-size: 0.8rem;
+}
+
+.element-right .prize-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: left;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #485465;
+  margin-top: auto;
+}
+
+.competition-list-more-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 9rem;
+  width: 100vw;
+}
+.competition-list-more-wrap .competition-list-more-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dacon-color);
+  color: var(--white-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.875rem 3.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/*화면이 1200px 보다 작을 때*/
+@media screen and (max-width: 1200px) {
+  .competition-list-wrap {
+    display: flex;
+    flex-direction: column;
+    overflow-y: visible;
+    align-items: flex-start;
+    padding: 0 2rem 0 1.5rem;
+  }
+
+  .competition-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    max-width: 64rem;
+    overflow-y: visible;
+    width: 95%;
+    margin: 0;
+    padding: 0 2vw;
+  }
+  .competition-list .competition-list-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 6.9rem;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+/*화면이 768px 보다 작을 때*/
+@media screen and (max-width: 768px) {
+  .competition-list-element .sponsor-logo-list {
+    display: none;
+  }
+}

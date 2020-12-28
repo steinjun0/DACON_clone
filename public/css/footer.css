@@ -1,0 +1,81 @@
+.footer-wrap {
+  width: 100%;
+  background-color: var(--dacon-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--dacon-color);
+  height: 160px;
+  color: var(--white-color);
+  font-size: 0.75rem;
+  width: 100%;
+  max-width: 64rem;
+}
+
+footer .dacon-footer-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+}
+
+footer .footer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 120px;
+  margin: 0 60px;
+}
+
+.footer-text ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+ul .policies {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+ul .policies .modal-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+ul .policies > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-right: 0.5rem;
+}
+
+ul .link-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+ul .link-icons img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: 1rem;
+  padding-right: 2rem;
+}

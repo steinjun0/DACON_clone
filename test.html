@@ -1,0 +1,28 @@
+<span
+  class="notification-comment"
+  v-if="!notification.isRead && notification.isShow"
+  v-on:click="notification.isRead = true; $emit('readContent')"
+  style="color: var(--dacon-color);">
+    {{notification.content}}
+  </span>
+<span
+  class="notification-time"
+  v-if="!notification.isRead && notification.isShow"
+  v-on:click="notification.isRead = true; $emit('readContent')"
+  style="color: var(--dacon-color); style="color: var(--dacon-color);">
+  {{notification.time}}
+</span>
+
+<span
+  class="notification-comment"
+  v-if="notification.isRead && notification.isShow"
+  style="color: var(--light-gray);">
+  {{notification.content}}
+</span>
+
+<span 
+  class="notification-time"
+  v-if="notification.isRead && notification.isShow" 
+  style="color: var(--light-gray);">
+  {{notification.time}}
+</span>

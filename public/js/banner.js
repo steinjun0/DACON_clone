@@ -7,14 +7,51 @@ Vue.component("banner-content", {
   },
   template: `
     <div class = "banner-content">
-      <div id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></div>
+      <img src="D:/Programming/WEB/dacon-clone/src/img/left-move-button-icon.svg" id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></img>
       <div class="banner-text">
         <div class="banner-title">{{title}}</div>
         <div class="banner-subtitle">{{subtitle}}</div>
         <button class="participation-button">{{buttonMessage}}</button> 
-        
+        <div class="index-icons">
+        <transition name="banner-index" mode="out-in">
+          <div
+            class="on"
+            id="banner-index-0-on"
+            v-if="bannerIndex == 0"
+            key="on"
+          ></div>
+          <div class="off" id="banner-index-0-off" v-else key="off"></div>
+        </transition>
+        <transition name="banner-index" mode="out-in">
+          <div
+            class="on"
+            id="banner-index-1-on"
+            v-if="bannerIndex == 1"
+            key="on"
+          ></div>
+          <div class="off" id="banner-index-1-off" v-else key="off"></div>
+        </transition>
+        <transition name="banner-index" mode="out-in">
+          <div
+            class="on"
+            id="banner-index-2-on"
+            v-if="bannerIndex == 2"
+            key="on"
+          ></div>
+          <div class="off" id="banner-index-2-off" v-else key="off"></div>
+        </transition>
+        <transition name="banner-index" mode="out-in">
+          <div
+            class="on"
+            id="banner-index-3-on"
+            v-if="bannerIndex == 3"
+            key="on"
+          ></div>
+          <div class="off" id="banner-index-3-off" v-else key="off"></div>
+        </transition>
       </div>
-      <div id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')"></div>
+      </div>
+      <img src="D:/Programming/WEB/dacon-clone/src/img/right-move-button-icon.svg" id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')">
     </div>
   `,
 });
@@ -133,5 +170,13 @@ new Vue({
         this.bannerComponent = this.bannerComponents[++this.bannerIndex];
       }
     },
+    autoMove: function () {
+      setInterval(() => {
+        this.moveRight();
+      }, 50000);
+    },
+  },
+  created: function () {
+    this.autoMove();
   },
 });

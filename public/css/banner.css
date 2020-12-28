@@ -1,0 +1,247 @@
+/* banner-wrap */
+
+body .banner-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  height: 20rem;
+  padding-top: 70px;
+}
+
+.banner-wrap .banner-contents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position-x: 50%;
+  padding-top: 3rem;
+}
+
+.banner-wrap .banner-contents .banner-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  color: var(--white-color);
+  margin: 0 3vw 0 2vw; /* 스크롤의 위치 때문에 오른쪽 margin을 조금 더 준다.*/
+}
+
+/* banner-move-button */
+
+.banner-content .banner-move-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 1px;
+}
+
+/* !!! css에서 class 선택자와 id 선택자를 섞어서 쓰는것이 안된다.
+(tag 선택자와 class 선택자는 가능)  */
+
+/* 
+  1. 퍼센트가 200퍼 이상.. 일반적인 경우를 벗어나면
+    다른 항목과의 충돌로 height width가 무너질 수 있다.
+  2. rotate 했기 때문에, padding margin도 전부 rotate 된다.
+  3. 위/아래 꺽쇠 길이가 달라서 찾느라 시간이 좀 걸림
+*/
+
+#banner-left-button {
+  position: relative;
+  right: 1vw;
+  bottom: 1.5rem;
+}
+
+#banner-right-button {
+  position: relative;
+  left: 1vw;
+  bottom: 1.5rem;
+}
+
+/* banner-text */
+.banner-content .banner-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: flex-start;
+
+  /* margin: 10% 7%; bannner-content의 높이가 40vh, 왜인지 %가 부모의 너비값을 참조한다  */
+  /* 결국 자식 항목에서 조절함 */
+  color: var(--white-color);
+  height: 80%;
+  width: 30rem;
+  right: 16rem;
+
+  /* 총 길이가 64rem = 30rem + 2*16rem (한쪽만 하니까 7rem) */
+}
+
+.banner-text .banner-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  padding-bottom: 0.875rem;
+  padding-top: 0;
+}
+
+.banner-text .banner-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  padding-bottom: 2rem;
+}
+
+.banner-text .participation-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid;
+  border-color: var(--white-color);
+  transition-duration: 0.4s;
+  color: var(--white-color);
+  padding: 0.45rem 2.5rem;
+  font-weight: 500;
+}
+
+.banner-text .participation-button:hover {
+  background-color: var(--white-color);
+  color: var(--dacon-color);
+}
+
+.banner-wrap .index-icons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  /*    
+        calc(9vw + 4.242px);
+        banner-content의 margin = 2vw
+        banner-text의 margin = 7vw 
+        banner-move-button 1rem*sqrt(2) 인데, 현재 버튼의 border로 인해 오차가 있는 듯함. *1.1로 조정*/
+  height: 0; /* !! 중요 !! 기존의 영역을 변경하지 않으면서 overlay한 항목을 추가 */
+}
+
+.banner-wrap .index-icons .off {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 2rem 0.5rem 0.5rem 0;
+  color: white;
+}
+
+.banner-wrap .index-icons .on {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 0.5rem;
+  padding: 0 0.8rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 2rem 0.5rem 0.5rem 0;
+  margin-left: 0;
+  color: white;
+}
+
+/* banner transition */
+
+.component-fade-enter-active {
+  transition: opacity 1s ease;
+}
+
+.component-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0.5;
+}
+
+/*화면이 1200px 보다 작을 때*/
+@media screen and (max-width: 1200px) {
+  .banner-wrap .banner-contents .banner-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    color: var(--white-color);
+    margin: 0 3vw 0 2vw; /* 스크롤의 위치 때문에 오른쪽 margin을 조금 더 준다.*/
+  }
+
+  .banner-content .banner-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: flex-start;
+    right: 0;
+    /* margin: 10% 7%; bannner-content의 높이가 40vh, 왜인지 %가 부모의 너비값을 참조한다  */
+    /* 결국 자식 항목에서 조절함 */
+    color: var(--white-color);
+    height: 80%;
+    width: 30rem;
+
+    /* 총 길이가 64rem = 30rem + 2*16rem (한쪽만 하니까 7rem) */
+  }
+
+  #banner-right-button {
+    position: relative;
+    left: 0;
+    bottom: 1.5rem;
+    margin-left: auto;
+  }
+}
+
+/*화면이 768px 보다 작을 때*/
+@media screen and (max-width: 768px) {
+  body .banner-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    height: 20rem;
+    padding-top: 20px;
+  }
+
+  .banner-content .banner-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: flex-start;
+    right: 0;
+    /* margin: 10% 7%; bannner-content의 높이가 40vh, 왜인지 %가 부모의 너비값을 참조한다  */
+    /* 결국 자식 항목에서 조절함 */
+    color: var(--white-color);
+    height: 80%;
+    width: 18rem;
+
+    /* 총 길이가 64rem = 30rem + 2*16rem (한쪽만 하니까 7rem) */
+  }
+
+  .banner-text .banner-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-bottom: 0.875rem;
+    padding-top: 0;
+  }
+
+  .banner-text .banner-subtitle {
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding-bottom: 1.75rem;
+  }
+
+  .banner-text .participation-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid;
+    border-color: var(--white-color);
+    transition-duration: 0.4s;
+    color: var(--white-color);
+    padding: 0.45rem 2.5rem;
+    font-weight: 500;
+  }
+}

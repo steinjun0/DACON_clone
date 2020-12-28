@@ -6,8 +6,8 @@ var statusElement = {
     title: String,
   },
   template: `
-    <li class="element">
-      <img :src="iconSrc" style="width:1rem;height:1rem;">
+    <li v-bind:class='className'>
+      <img :src="iconSrc" style="width:1.2rem;height:1.2rem;">
       <span class="number" v-if="className=='competition-count'">{{numberComma}}개</span>
       <span class="number" v-else-if="className=='team-count'">{{numberComma}}</span>
       <span class="number" v-else-if="className=='prize-money'">{{number.toString()[0]}}억 {{number.toString().slice(1)}}만원</span>

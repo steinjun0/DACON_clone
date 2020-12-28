@@ -6,13 +6,22 @@
     <title>Document</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    <link rel="stylesheet" type="text/css" href="navigation.css" />
-    <link rel="stylesheet" type="text/css" href="banner.css" />
-    <link rel="stylesheet" type="text/css" href="status.css" />
-    <script defer src="navigation.js"></script>
-    <script defer src="banner.js"></script>
-    <script defer src="dacon-status.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/banner.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/status.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="public/css/competition-list.css"
+    />
+    <link rel="stylesheet" type="text/css" href="public/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/modal.css" />
+    <script defer src="public/js/navigation.js"></script>
+    <script defer src="public/js/banner.js"></script>
+    <script defer src="public/js/dacon-status.js"></script>
+    <script defer src="public/js/competition-list.js"></script>
+    <script defer src="public/js/modal.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -28,15 +37,15 @@
   </style>
   <body>
     <nav id="navigation" class="navigation">
-      <a class="member" href="main.html">
+      <a id="main-logo" class="member" href="main.html">
         <img src="src/img/dacon-title-logo.svg" alt="dacon" />
       </a>
-      <navigation-menu></navigation-menu>
+      <navigation-menu class="full-navigation-menu"></navigation-menu>
       <navigation-search-and-private></navigation-search-and-private>
     </nav>
 
     <div id="banner-wrap" class="banner-wrap">
-      <transition name="component-fade" mode="in-out">
+      <transition name="component-fade" mode="out-in">
         <component
           v-bind:is="bannerComponent"
           v-bind:banner-contents="bannerContents"
@@ -45,56 +54,114 @@
           v-on:move-right="moveRight"
         ></component>
       </transition>
-      <div class="index-icons">
-        <transition name="banner-index">
-          <div
-            class="on"
-            id="banner-index-0-on"
-            v-if="bannerIndex == 0"
-            key="on"
-          >
-            111
-          </div>
-          <div class="off" id="banner-index-0-off" v-else key="off">aaa</div>
-        </transition>
-        <transition name="banner-index">
-          <div
-            class="on"
-            id="banner-index-1-on"
-            v-if="bannerIndex == 1"
-            key="on"
-          >
-            222
-          </div>
-          <div class="off" id="banner-index-1-off" v-else key="off">bbb</div>
-        </transition>
-        <transition name="banner-index">
-          <div
-            class="on"
-            id="banner-index-2-on"
-            v-if="bannerIndex == 2"
-            key="on"
-          >
-            333
-          </div>
-          <div class="off" id="banner-index-2-off" v-else key="off">ccc</div>
-        </transition>
-        <transition name="banner-index" mode="out-in">
-          <div
-            class="on"
-            id="banner-index-3-on"
-            v-if="bannerIndex == 3"
-            key="on"
-          >
-            444
-          </div>
-          <div class="off" id="banner-index-3-off" v-else key="off">ddd</div>
-        </transition>
-      </div>
     </div>
-    
+
     <div class="dacon-status-wrap" id="dacon-status-wrap">
       <dacon-status></dacon-status>
+    </div>
+
+    <div class="competition-list-wrap" id="competition-list-wrap">
+      <competition-list v-bind:list-data="listData"></competition-list>
+      <div class="competition-list-more-wrap">
+        <button
+          v-on:click="requestMoreList"
+          class="competition-list-more-button"
+          v-if="moreButtonShow"
+        >
+          더보기
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-wrap">
+      <footer>
+        <img
+          class="dacon-footer-logo"
+          src="D:/Programming/WEB/dacon-clone/src/img/dacon-footer-logo.svg"
+          alt=""
+        />
+        <div class="footer-text">
+          <ul>
+            <li class="policies">
+              <span class="modal-btn" @click="personalInfoShow = true">
+                개인정보보호정책
+              </span>
+              <span> | </span>
+              <span class="modal-btn" @click="policyShow = true">
+                이용약관
+              </span>
+            </li>
+            <li>
+              DACON Inc., 83, Uisadang-daero, Yeongdeungpo-gu, Seoul, Republic
+              of Korea
+            </li>
+            <li class="link-icons">
+              <img
+                src="D:\Programming\WEB\dacon-clone\src\img/e-mail-icon.svg"
+                alt="e-mail"
+              />
+              <a href="https://www.facebook.com/dacon.io/" target="_blank">
+                <img
+                  src="D:\Programming\WEB\dacon-clone\src\img/facebook-icon.svg"
+                  alt="facebook"
+                />
+              </a>
+              <a href="http://bit.ly/35MRP0t" target="_blank">
+                <img
+                  src="D:\Programming\WEB\dacon-clone\src\img/youtube-icon.svg"
+                  alt="youtube"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/data-game"
+                target="_blank"
+              >
+                <img
+                  src="D:\Programming\WEB\dacon-clone\src\img/linkedin-icon.svg"
+                  alt="Linkedin"
+                />
+              </a>
+            </li>
+            <li>Copyright ⓒ DACON Inc. All rights reserved</li>
+          </ul>
+        </div>
+
+        <modal v-if="personalInfoShow" @close="personalInfoShow = false">
+          <h2 slot="header">개인정보 보호정책</h2>
+          <h3 slot="title">데이콘 개인정보 처리방침</h3>
+          <p slot="content">
+            데이콘은 이용자 개인정보 보호를 여러 경영요소 가운데 최우선의 가치로
+            두고 있습니다 <br />데이콘주식회사(이하 ‘데이콘’ 또는 ‘회사’)는
+            서비스 기획부터 종료까지 정보통신망 이용촉진 및 정보보호 등에 관한
+            법률(이하 ‘정보통신망법’), 개인정보보호법 등 국내의 개인정보 보호
+            법령을 철저히 준수합니다.<br /><br />
+            본 개인정보처리방침의 목차는 아래와 같습니다.<br /><br />
+            일부는 관계법령이 개인정보처리방침의 작성에 있어 요구하는 필수
+            사항을 포함하였고, 나머지는 데이콘이 자체적으로 이용자의 개인정보
+            보호에 있어 중요하다 판단하는 내용을 추가하였습니다.<br /><br />
+            개인정보처리방침의 의의 수집하는 개인정보 (필수 안내사항)<br />수집한
+            개인정보의 이용 (필수 안내사항)<br />개인정보의 제공 및 위탁 (필수
+            안내사항)<br />
+            개인정보의 파기 (필수 안내사항)<br />이용자 및 법정대리인의 권리와
+            행사 방법 (필수 안내사항)<br />개인정보 보호책임자 및 담당자 안내
+            (필수 안내사항)<br />개정 전 고지 의무
+          </p>
+        </modal>
+
+        <modal v-if="policyShow" @close="policyShow = false">
+          <h2 slot="header">이용약관</h2>
+          <h3 slot="title">제 1 조 (목적)</h3>
+          <p slot="content">
+            DACON(데이콘)에 오신 것을 환영합니다. DACON(데이콘)과 이용자간에
+            정보 서비스를 이용하는 조건 및 절차에 관한 필요한 사항을 약속하여
+            규정하는데 그 목적이 있습니다. 이용자는 모든 약관에 동의해야 하며,
+            어떤 방식으로든 본 서비스를 사용한다는 것은 이용자가 본 약관의
+            전부에 동의한다는 것을 의미하며 본 약관은 이용자가 서비스를 사용하는
+            동안 계속 유효합니다. 본 약관은 개인 정보 취급 방침 및 저작권 분쟁
+            정책의 조항을 포함합니다.
+          </p>
+        </modal>
+      </footer>
     </div>
   </body>
 </html>
