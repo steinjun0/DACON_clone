@@ -187,7 +187,8 @@ var navigationSearchAndPrivate = {
       </div>
       <div class="member" id="menu-hamburger">
         <img class="right-top-icon" src="/img/hamburger-menu-icon.svg" alt="menu" style="cursor:pointer;"
-        v-on:click="switchHamburgerMenu"/> 
+        v-on:click="switchHamburgerMenu"
+        /> 
       </div>
     </div>
     <div class="dropdown">
@@ -245,6 +246,14 @@ var navigationSearchAndPrivate = {
     switchProfileDropDown: function () {
       this.profileDropDownOpen = !this.profileDropDownOpen;
     },
+    closeNotiAndProfile: function () {
+      this.notificationDropDownOpen = false;
+      this.profileDropDownOpen = false;
+      console.log("closeall");
+    },
+    closeTabMenu: function () {
+      this.hamburgerMenuOpen = false;
+    },
     controlNotiAndProfile: function (flag) {
       if (flag == "notification") {
         if (
@@ -293,9 +302,12 @@ var navigationSearchAndPrivate = {
           this.profileDropDownOpen = true;
         }
       }
+      this.closeTabMenu();
     },
     switchHamburgerMenu: function () {
       this.hamburgerMenuOpen = !this.hamburgerMenuOpen;
+      this.closeNotiAndProfile();
+      console.log("switchHAm");
     },
   },
 };
