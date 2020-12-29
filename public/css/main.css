@@ -15,6 +15,7 @@
 * {
   text-decoration: none;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
 }
 
 li {
@@ -27,5 +28,5 @@ body {
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 100vw;
+  width: 100%;
 }

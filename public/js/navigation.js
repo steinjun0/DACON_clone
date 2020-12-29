@@ -102,7 +102,7 @@ var notificationDropDown = {
             style="color: var(--menu-color);color: var(--menu-color);">
             {{notification.time}}
           </span>
-
+  
           <span
             class="notification-comment"
             v-if="notification.isRead"
@@ -119,7 +119,7 @@ var notificationDropDown = {
 
         </div>
         <img class="close-icon"
-          src="src/img/times-solid.svg"
+          src="/img/times-solid.svg"
           v-on:click="notification.isShow = false; $emit('readContent', index)"
           style="color: var(--dacon-color); height: 0.8rem; width: 0.8rem;">
       </div>
@@ -174,19 +174,19 @@ var navigationSearchAndPrivate = {
     <div class="navigation-search-and-private">
       <div class="member">
         <a href="search.html">
-          <img class="right-top-icon" id="search" src="src/img/search-icon.svg" alt="search" />
+          <img class="right-top-icon" id="search" src="/img/search-icon.svg" alt="search" />
         </a>
       </div>
       <div class="member">
-        <img class="right-top-icon" src="src/img/notification-icon.svg" alt="notification" style="cursor:pointer;"
+        <img class="right-top-icon" src="/img/notification-icon.svg" alt="notification" style="cursor:pointer;"
         v-on:click="controlNotiAndProfile('notification')"/>
       </div>
       <div class="member">
-        <img id="profile-img" class="right-top-icon" src="src/img/profile-img" alt="profile" style="cursor:pointer;"
+        <img id="profile-img" class="right-top-icon" src="/img/profile-img" alt="profile" style="cursor:pointer;"
         v-on:click="controlNotiAndProfile('profile')"/> 
       </div>
       <div class="member" id="menu-hamburger">
-        <img class="right-top-icon" src="src/img/hamburger-menu-icon.svg" alt="menu" style="cursor:pointer;"
+        <img class="right-top-icon" src="/img/hamburger-menu-icon.svg" alt="menu" style="cursor:pointer;"
         v-on:click="switchHamburgerMenu"/> 
       </div>
     </div>

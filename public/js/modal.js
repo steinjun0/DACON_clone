@@ -8,7 +8,7 @@ var modalTemplate = `
                 <slot name="header">
                   default header
                 </slot>
-                <img src="D:/Programming/WEB/dacon-clone/src/img/cancel.svg" class="modal-default-button"  v-on:click="$emit('close')">
+                <img src="/img/cancel.svg" class="modal-default-button"  v-on:click="$emit('close')">
                 </img>
               </div>
 

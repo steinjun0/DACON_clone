@@ -6,22 +6,18 @@
     <title>Document</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/navigation.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/banner.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/status.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="public/css/competition-list.css"
-    />
-    <link rel="stylesheet" type="text/css" href="public/css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/modal.css" />
-    <script defer src="public/js/navigation.js"></script>
-    <script defer src="public/js/banner.js"></script>
-    <script defer src="public/js/dacon-status.js"></script>
-    <script defer src="public/js/competition-list.js"></script>
-    <script defer src="public/js/modal.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/navigation.css" />
+    <link rel="stylesheet" type="text/css" href="/css/banner.css" />
+    <link rel="stylesheet" type="text/css" href="/css/status.css" />
+    <link rel="stylesheet" type="text/css" href="/css/competition-list.css" />
+    <link rel="stylesheet" type="text/css" href="/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="/css/modal.css" />
+    <script defer src="/js/navigation.js"></script>
+    <script defer src="/js/banner.js"></script>
+    <script defer src="/js/dacon-status.js"></script>
+    <script defer src="/js/competition-list.js"></script>
+    <script defer src="/js/modal.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -38,7 +34,7 @@
   <body>
     <nav id="navigation" class="navigation">
       <a id="main-logo" class="member" href="main.html">
-        <img src="src/img/dacon-title-logo.svg" alt="dacon" />
+        <img src="/img/dacon-title-logo.svg" alt="dacon" />
       </a>
       <navigation-menu class="full-navigation-menu"></navigation-menu>
       <navigation-search-and-private></navigation-search-and-private>
@@ -52,6 +48,7 @@
           v-bind:banner-index="bannerIndex"
           v-on:move-left="moveLeft"
           v-on:move-right="moveRight"
+          v-on:change-index="changeIndex($event)"
         ></component>
       </transition>
     </div>
@@ -77,7 +74,7 @@
       <footer>
         <img
           class="dacon-footer-logo"
-          src="D:/Programming/WEB/dacon-clone/src/img/dacon-footer-logo.svg"
+          src="/img/dacon-footer-logo.svg"
           alt=""
         />
         <div class="footer-text">
@@ -96,30 +93,18 @@
               of Korea
             </li>
             <li class="link-icons">
-              <img
-                src="D:\Programming\WEB\dacon-clone\src\img/e-mail-icon.svg"
-                alt="e-mail"
-              />
+              <img src="/img/e-mail-icon.svg" alt="e-mail" />
               <a href="https://www.facebook.com/dacon.io/" target="_blank">
-                <img
-                  src="D:\Programming\WEB\dacon-clone\src\img/facebook-icon.svg"
-                  alt="facebook"
-                />
+                <img src="/img/facebook-icon.svg" alt="facebook" />
               </a>
               <a href="http://bit.ly/35MRP0t" target="_blank">
-                <img
-                  src="D:\Programming\WEB\dacon-clone\src\img/youtube-icon.svg"
-                  alt="youtube"
-                />
+                <img src="/img/youtube-icon.svg" alt="youtube" />
               </a>
               <a
                 href="https://www.linkedin.com/company/data-game"
                 target="_blank"
               >
-                <img
-                  src="D:\Programming\WEB\dacon-clone\src\img/linkedin-icon.svg"
-                  alt="Linkedin"
-                />
+                <img src="/img/linkedin-icon.svg" alt="Linkedin" />
               </a>
             </li>
             <li>Copyright ⓒ DACON Inc. All rights reserved</li>

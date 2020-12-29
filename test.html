@@ -1,28 +1,47 @@
-<span
-  class="notification-comment"
-  v-if="!notification.isRead && notification.isShow"
-  v-on:click="notification.isRead = true; $emit('readContent')"
-  style="color: var(--dacon-color);">
-    {{notification.content}}
-  </span>
-<span
-  class="notification-time"
-  v-if="!notification.isRead && notification.isShow"
-  v-on:click="notification.isRead = true; $emit('readContent')"
-  style="color: var(--dacon-color); style="color: var(--dacon-color);">
-  {{notification.time}}
-</span>
-
-<span
-  class="notification-comment"
-  v-if="notification.isRead && notification.isShow"
-  style="color: var(--light-gray);">
-  {{notification.content}}
-</span>
-
-<span 
-  class="notification-time"
-  v-if="notification.isRead && notification.isShow" 
-  style="color: var(--light-gray);">
-  {{notification.time}}
-</span>
+<div class = "banner-content">
+  <img src="/img/left-move-button-icon.svg" id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></img>
+  <div class="banner-text">
+    <div class="banner-title">{{title}}</div>
+    <div class="banner-subtitle">{{subtitle}}</div>
+    <button class="participation-button">{{buttonMessage}}</button> 
+    <div class="index-icons">
+    <transition name="banner-index" mode="out-in">
+      <div
+        class="on"
+        id="banner-index-0-on"
+        v-if="bannerIndex == 0"
+        key="on"
+      ></div>
+      <div class="off" id="banner-index-0-off" v-else key="off"></div>
+    </transition>
+    <transition name="banner-index" mode="out-in">
+      <div
+        class="on"
+        id="banner-index-1-on"
+        v-if="bannerIndex == 1"
+        key="on"
+      ></div>
+      <div class="off" id="banner-index-1-off" v-else key="off"></div>
+    </transition>
+    <transition name="banner-index" mode="out-in">
+      <div
+        class="on"
+        id="banner-index-2-on"
+        v-if="bannerIndex == 2"
+        key="on"
+      ></div>
+      <div class="off" id="banner-index-2-off" v-else key="off"></div>
+    </transition>
+    <transition name="banner-index" mode="out-in">
+      <div
+        class="on"
+        id="banner-index-3-on"
+        v-if="bannerIndex == 3"
+        key="on"
+      ></div>
+      <div class="off" id="banner-index-3-off" v-else key="off"></div>
+    </transition>
+    </div>
+  </div>
+  <img src="/img/right-move-button-icon.svg" id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')">
+</div>

@@ -7,7 +7,7 @@ Vue.component("banner-content", {
   },
   template: `
     <div class = "banner-content">
-      <img src="D:/Programming/WEB/dacon-clone/src/img/left-move-button-icon.svg" id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></img>
+      <img src="/img/left-move-button-icon.svg" id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></img>
       <div class="banner-text">
         <div class="banner-title">{{title}}</div>
         <div class="banner-subtitle">{{subtitle}}</div>
@@ -19,8 +19,9 @@ Vue.component("banner-content", {
             id="banner-index-0-on"
             v-if="bannerIndex == 0"
             key="on"
+            v-on:click="$emit('change-index', 0)"
           ></div>
-          <div class="off" id="banner-index-0-off" v-else key="off"></div>
+          <div v-on:click="$emit('change-index', 0)" class="off" id="banner-index-0-off" v-else key="off"></div>
         </transition>
         <transition name="banner-index" mode="out-in">
           <div
@@ -28,8 +29,9 @@ Vue.component("banner-content", {
             id="banner-index-1-on"
             v-if="bannerIndex == 1"
             key="on"
+            v-on:click="$emit('change-index', 1)"
           ></div>
-          <div class="off" id="banner-index-1-off" v-else key="off"></div>
+          <div v-on:click="$emit('change-index', 1)" class="off" id="banner-index-1-off" v-else key="off"></div>
         </transition>
         <transition name="banner-index" mode="out-in">
           <div
@@ -37,8 +39,9 @@ Vue.component("banner-content", {
             id="banner-index-2-on"
             v-if="bannerIndex == 2"
             key="on"
+            v-on:click="$emit('change-index', 2)"
           ></div>
-          <div class="off" id="banner-index-2-off" v-else key="off"></div>
+          <div v-on:click="$emit('change-index', 2)" class="off" id="banner-index-2-off" v-else key="off"></div>
         </transition>
         <transition name="banner-index" mode="out-in">
           <div
@@ -46,12 +49,13 @@ Vue.component("banner-content", {
             id="banner-index-3-on"
             v-if="bannerIndex == 3"
             key="on"
+            v-on:click="$emit('change-index', 3)"
           ></div>
-          <div class="off" id="banner-index-3-off" v-else key="off"></div>
+          <div v-on:click="$emit('change-index', 3)" class="off" id="banner-index-3-off" v-else key="off"></div>
         </transition>
+        </div>
       </div>
-      </div>
-      <img src="D:/Programming/WEB/dacon-clone/src/img/right-move-button-icon.svg" id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')">
+      <img src="/img/right-move-button-icon.svg" id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')">
     </div>
   `,
 });
@@ -69,11 +73,13 @@ var bannerContentsTemplate =
         v-bind:button-message="bannerContents[bannerIndex].buttonMessage"
         v-bind:banner-index="bannerIndex"
         v-on:move-left="$emit('move-left')"
-        v-on:move-right="$emit('move-right')"></banner-content>
+        v-on:move-right="$emit('move-right')"
+        v-on:change-index="$emit('change-index',$event)">
+        </banner-content>
     </div>
   `;
 
-new Vue({
+var bannerVue = new Vue({
   el: "#banner-wrap",
   components: {
     banner0: {
@@ -124,34 +130,33 @@ new Vue({
     bannerContents: [
       {
         // 변수로 사용하니 기본 탐색경로가 지정되지 않고 D:/src/img... 와 같이 전달되어서 절대경로로 설정해줌
-        imgSrc:
-          "D:/Programming/WEB/dacon-clone/src/img/space-information-banner.png",
+        imgSrc: "/img/space-information-banner.png",
         title: "공간정보 탐색적 데이터 분석 경진대회",
         subtitle: "국토도시 빅데이터 인터스쿨 | 국토연구원 | 시각화 | 유저평가",
         buttonMessage: "대회 참여",
       },
       {
-        imgSrc:
-          "D:/Programming/WEB/dacon-clone/src/img/solar-power-plant-banner.png",
+        imgSrc: "/img/solar-power-plant-banner.png",
         title: "태양광 발전량 예측 AI 경진대회",
         subtitle:
           "지역의 기상 데이터와 과거 발전량 데이터를 활용하여, 시간대별 태양광 발전량을 예측",
         buttonMessage: "대회 참여",
       },
       {
-        imgSrc: "D:/Programming/WEB/dacon-clone/src/img/dacon-cup-banner.png",
+        imgSrc: "/img/dacon-cup-banner.png",
         title: "2020 DACON CUP",
         subtitle: "월간 데이콘 | 시계열 | 정형 | 데이콘 데이터",
         buttonMessage: "대회 참여",
       },
       {
-        imgSrc: "D:/Programming/WEB/dacon-clone/src/img/recruit-banner.png",
+        imgSrc: "/img/recruit-banner.png",
         title: "데이콘에서 개발자를 채용합니다.",
         subtitle: "데이콘에서 vue.js + nuxt.js 개발자를 채용합니다.",
         buttonMessage: "더보기",
       },
     ],
     bannerIndex: 0,
+    autoTimer: null,
   },
   methods: {
     moveLeft: function () {
@@ -171,9 +176,15 @@ new Vue({
       }
     },
     autoMove: function () {
-      setInterval(() => {
+      this.autoTimer = setInterval(() => {
         this.moveRight();
-      }, 50000);
+      }, 5000);
+    },
+    changeIndex: function (index) {
+      this.bannerIndex = index;
+      this.bannerComponent = this.bannerComponents[index];
+      clearInterval(this.autoTimer);
+      this.autoMove();
     },
   },
   created: function () {

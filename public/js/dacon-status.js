@@ -35,19 +35,19 @@ var daconStatus = {
     <ul class="status-list">
       <status-element
         v-bind:className="'competition-count'"
-        v-bind:iconSrc="'D:/Programming/WEB/dacon-clone/src/img/throphy.svg'"
+        v-bind:iconSrc="'/img/throphy.svg'"
         v-bind:number="49"
         v-bind:title="'대회 개최'"
       ></status-element>
       <status-element
         v-bind:className="'team-count'"
-        v-bind:iconSrc="'D:/Programming/WEB/dacon-clone/src/img/team.svg'"
+        v-bind:iconSrc="'/img/team.svg'"
         v-bind:number="34599"
         v-bind:title="'팀 참여'"
       ></status-element>
       <status-element
         v-bind:className="'prize-money'"
-        v-bind:iconSrc="'D:/Programming/WEB/dacon-clone/src/img/money-pack.svg'"
+        v-bind:iconSrc="'/img/money-pack.svg'"
         v-bind:number="37050"
         v-bind:title="'상금'"
       ></status-element>

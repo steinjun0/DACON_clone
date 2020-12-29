@@ -79,3 +79,10 @@ ul .link-icons img {
   width: 1rem;
   padding-right: 2rem;
 }
+
+/*화면이 1200px 보다 작을 때*/
+@media screen and (max-width: 650px) {
+  footer .dacon-footer-logo {
+    display: none;
+  }
+}
