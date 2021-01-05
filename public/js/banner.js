@@ -7,7 +7,7 @@ Vue.component("banner-content", {
   },
   template: `
     <div class = "banner-content">
-      <img src="/img/left-move-button-icon.svg" id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></img>
+      <img src="/img/left-move-button-icon.svg" style="cursor:pointer;" id="banner-left-button" class="banner-move-button"  v-on:click="$emit('move-left')"></img>
       <div class="banner-text">
         <div class="banner-title">{{title}}</div>
         <div class="banner-subtitle">{{subtitle}}</div>
@@ -55,7 +55,7 @@ Vue.component("banner-content", {
         </transition>
         </div>
       </div>
-      <img src="/img/right-move-button-icon.svg" id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')">
+      <img src="/img/right-move-button-icon.svg" style="cursor:pointer;" id="banner-right-button" class="banner-move-button"  v-on:click="$emit('move-right')">
     </div>
   `,
 });
