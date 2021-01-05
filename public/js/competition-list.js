@@ -83,10 +83,9 @@ var listData_v = [];
 var competitionListVue;
 
 var requestMoreListFunction = function requestMoreList() {
-  console.log(competitionListVue._data);
   const promise = new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
-    console.log(`${competitionListVue}`);
+
     xhr.open(
       "GET",
       "https://newapi.dacon.io/main/public_list_all_scroll/" +
@@ -96,7 +95,7 @@ var requestMoreListFunction = function requestMoreList() {
     xhr.responseType = "json";
     xhr.onload = function () {
       var status = xhr.status;
-      console.log(`${competitionListVue._data.listData[0].name}`);
+
       if (status === 200) {
         resolve(xhr.response);
       } else {
@@ -107,18 +106,17 @@ var requestMoreListFunction = function requestMoreList() {
   });
 
   promise.then((listApiResponse) => {
-    console.log(competitionListVue._data.listData);
     if (listApiResponse.data.length == 10) {
       competitionListVue._data.listData = competitionListVue._data.listData.concat(
         listApiResponse.data
       );
-      console.log(competitionListVue._data.listData);
+
       competitionListVue._data.listAPIUrlIndex += 10;
     } else if (listApiResponse.data.length < 10) {
       competitionListVue._data.listData = competitionListVue._data.listData.concat(
         listApiResponse.data
       );
-      console.log(competitionListVue._data.listData);
+
       competitionListVue._data.listAPIUrlIndex += listApiResponse.data.length;
       competitionListVue._data.moreButtonShow = false;
     }
@@ -160,11 +158,11 @@ promise.then((listApiResponse) => {
     },
 
     created: function () {
-      console.log(this.listData);
+      //console.log(this.listData);
     },
     methods: {
       requestMoreList: requestMoreListFunction,
     },
   });
-  console.log(competitionListVue);
+  //console.log(competitionListVue);
 });
