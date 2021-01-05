@@ -1,716 +1,694 @@
 .navigation {
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  height: 30px;
-  width: 100%;
-  padding-left: 40px;
-  padding: 20px 0 20px 40px;
-  background-color: var(--white-color);
-  align-items: center;
-  overflow-y: visible;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  z-index: 1;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    width: 100%;
+    padding-left: 40px;
+    padding: 20px 0 20px 40px;
+    background-color: var(--white-color);
+    align-items: center;
+    overflow-y: visible;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    z-index: 1;
 }
 
 .navigation .member {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .navigation .full-navigation-menu {
-  display: flex;
+    display: flex;
 }
 
 .navigation .tab-navigation-menu {
-  display: none;
+    display: none;
 }
 
 .navigation .main-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 20px;
-  padding-left: 80px;
-  padding-right: 0;
-  margin: 0;
-  height: 100%;
-  margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    padding-left: 80px;
+    padding-right: 0;
+    margin: 0;
+    height: 100%;
+    margin-right: auto;
 }
 
 .navigation .main-menu .menu {
-  display: flex;
-  padding: 0px 10px 0 10px;
-  text-align: center;
-  flex-direction: row;
+    display: flex;
+    padding: 0px 10px 0 10px;
+    text-align: center;
+    flex-direction: row;
 }
 
-.navigation .main-menu .menu > * {
-  font-weight: 400;
-  padding-right: 12px;
-  color: var(--menu-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.navigation .main-menu .menu>* {
+    font-weight: 400;
+    padding-right: 12px;
+    color: var(--menu-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .navigation .main-menu .menu #menu-more {
-  color: var(--light-gray);
-  font-weight: 500;
-  font-size: 0.875rem;
-  cursor: pointer;
+    color: var(--light-gray);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
 }
 
 .navigation .right-top {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  padding: 20px;
-  padding-left: 0;
-  margin-right: 40px;
-  margin-left: auto;
-  height: 100%;
-  width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 20px;
+    padding-left: 0;
+    margin-right: 40px;
+    margin-left: auto;
+    height: 100%;
+    width: 200px;
 }
 
 .navigation .right-top .navigation-search-and-private {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 100%;
-  width: 200px;
-  flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    width: 200px;
+    flex-shrink: 0;
 }
 
 .navigation .right-top .navigation-search-and-private .member {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
+
+.navigation .member .right-top-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+}
+
 .navigation-search-and-private #menu-hamburger {
-  display: none;
+    display: none;
 }
 
 .navigation .right-top .navigation-search-and-private .member img {
-  border-radius: 10%;
+    border-radius: 10%;
 }
 
 .navigation .right-top .navigation-search-and-private .member #profile-img {
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
 }
 
 .navigation .right-top .navigation-search-and-private .member #search {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
 }
+
 
 /* dropdown */
 
 .navigation .right-top .dropdown {
-  position: relative;
-  display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 20px;
-  left: 10px;
-  background-color: var(--white-color);
-  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
-  border-top: 1px solid var(--super-light-gray);
-  width: auto;
-  padding-bottom: 0px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    left: 10px;
+    background-color: var(--white-color);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid var(--super-light-gray);
+    width: auto;
+    padding-bottom: 0px;
 }
+
 
 /* notification-drop-down */
 
 .navigation .right-top .dropdown .notification-drop-down {
-  position: relative;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 0px;
-  width: 400px;
-  margin: 10px 20px;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0px;
+    width: 400px;
+    margin: 10px 20px;
 }
 
 .navigation .right-top .dropdown .notification-drop-down-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 0px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
 }
 
-.navigation
-  .right-top
-  .dropdown
-  .notification-drop-down-top
-  .notification-top-left {
-  display: flex;
-  flex-direction: row;
-  font-weight: 700;
+.navigation .right-top .dropdown .notification-drop-down-top .notification-top-left {
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
 }
 
-.navigation
-  .right-top
-  .dropdown
-  .notification-drop-down-top
-  .notification-top-left
-  > span {
-  margin: 10px 0;
-  font-size: 0.75rem;
+.navigation .right-top .dropdown .notification-drop-down-top .notification-top-left>span {
+    margin: 10px 0;
+    font-size: 0.75rem;
 }
 
-.navigation
-  .right-top
-  .dropdown
-  .notification-drop-down-top
-  .notification-top-left
-  #notification-count {
-  display: flex;
-  margin-left: 5px;
-  color: red;
-  font-size: 0.75rem;
+.navigation .right-top .dropdown .notification-drop-down-top .notification-top-left #notification-count {
+    display: flex;
+    margin-left: 5px;
+    color: red;
+    font-size: 0.75rem;
 }
 
 .navigation .right-top .dropdown .notification-drop-down-top .list {
-  position: relative;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin: 10px 0;
-  padding: 0;
+    position: relative;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px 0;
+    padding: 0;
 }
 
-.navigation .right-top .dropdown .notification-drop-down-top .list > li {
-  margin: 0 10px;
-  font-size: 0.75rem;
+.navigation .right-top .dropdown .notification-drop-down-top .list>li {
+    margin: 0 10px;
+    font-size: 0.75rem;
 }
 
 .navigation .right-top .dropdown .notification-contents {
-  margin-top: 15px;
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.25);
-  /* overflow-y: scroll; */
-}
-
-.navigation .right-top .dropdown .notification-contents > * {
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.25);
-  font-weight: 500;
-  padding: 0;
-  padding-right: 0;
-  padding-bottom: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notification-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  cursor: pointer;
-  margin-right: 0;
-}
-
-.notification-content .comment-and-time {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 350px;
-  cursor: pointer;
-}
-.notification-content .close-icon {
-  position: relative;
-  top: 2px;
-  cursor: pointer;
-}
-
-/* profile-drop-down */
-
-.navigation .right-top .dropdown .profile-drop-down {
-  position: relative;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 0px;
-  width: 166px;
-  font-size: 0.75rem;
-  font-weight: 400;
-}
-
-.profile-drop-down .profile-drop-down-top {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 0.7rem;
-  padding: 0.3rem 1em 0.5rem 1rem;
-  background-color: var(--super-light-gray);
-  font-family: "Open Sans";
-  color: var(--text-light-gray);
-}
-
-.profile-drop-down .profile-drop-down-bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0;
-  margin: 0;
-  border: 1px solid var(--super-light-gray);
-}
-
-.profile-drop-down .profile-drop-down-bottom > li {
-  background-color: var(--white-color);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding-top: 0px;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-}
-
-.navigation
-  .right-top
-  .dropdown
-  .profile-drop-down
-  .profile-drop-down-bottom
-  li
-  a {
-  text-decoration: none;
-  color: var(--text-light-gray);
-}
-
-/*화면이 910px 보다 작을 때*/
-
-@media screen and (max-width: 910px) {
-  .navigation .right-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 20px;
-    padding-left: 0;
-    margin-right: 40px;
-    margin-left: auto;
-    height: 100%;
-    width: 400px;
-  }
-
-  .navigation .right-top .navigation-search-and-private {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    width: 250px;
-    flex-shrink: 0;
-  }
-
-  .navigation .member {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .navigation-search-and-private #menu-hamburger {
-    display: flex;
-    color: var(--text-gray);
-    width: 25px;
-    height: 25px;
-  }
-
-  .navigation .full-navigation-menu {
-    display: none;
-  }
-
-  .navigation .tab-navigation-menu {
-    display: flex;
-  }
-
-  .navigation .main-menu {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px;
-    margin: 0;
-    height: 120vh;
-    width: 250px;
-    bottom: 1px;
-    left: 20px;
-    box-shadow: -2px 6px 6px rgba(0, 0, 0, 0.25);
-    margin-right: auto;
-    background-color: var(--white-color);
-  }
-
-  .navigation .main-menu .menu {
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-  }
-
-  .navigation .main-menu .menu > * {
-    font-size: 1.5rem;
-    font-weight: 400;
-    padding-top: 1rem;
-    padding-right: 12px;
-    color: var(--menu-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .navigation .main-menu .menu #menu-more {
-    color: var(--light-gray);
-    font-weight: 500;
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
-}
-
-/*화면이 768px 보다 작을 때*/
-
-@media screen and (max-width: 768px) {
-  .navigation {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    height: 30px;
-    width: 100%;
-    padding: 10px;
-    background-color: var(--white-color);
-    align-items: center;
-    overflow-y: visible;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  }
-
-  .navigation #main-logo {
-    height: 2rem;
-    width: auto;
-  }
-
-  .navigation .right-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 20px;
-    padding-left: 0;
-    margin-right: 40px;
-    margin-left: auto;
-    height: 100%;
-    width: 400px;
-  }
-
-  .navigation .member .right-top-icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 17px;
-    height: 17px;
-  }
-
-  .navigation-search-and-private #menu-hamburger {
-    display: flex;
-    color: var(--text-gray);
-    width: 20px;
-    height: 20px;
-  }
-
-  .navigation .right-top .navigation-search-and-private {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    width: 200px;
-    flex-shrink: 0;
-  }
-
-  .navigation .right-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 20px;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: auto;
-    height: 100%;
-    width: 200px;
-  }
-
-  .navigation .right-top .dropdown {
-    position: relative;
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 10px;
-    left: 10px;
-    background-color: var(--white-color);
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
-    border-top: 1px solid var(--super-light-gray);
-    width: auto;
-    padding-bottom: 0px;
-  }
-
-  .navigation .right-top .dropdown .notification-drop-down {
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 0px;
-    width: 374px;
-    margin: 10px 20px;
-  }
-
-  .navigation .right-top .navigation-search-and-private .member #profile-img {
-    width: 30px;
-    height: 30px;
-  }
-
-  /* tab main menu size down */
-
-  .navigation .main-menu {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px;
-    margin: 0;
-    height: 120vh;
-    width: 200px;
-    bottom: 11px;
-    left: 20px;
-    box-shadow: -2px 6px 6px rgba(0, 0, 0, 0.25);
-    margin-right: auto;
-    background-color: var(--white-color);
-  }
-
-  .navigation .main-menu .menu {
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-  }
-
-  .navigation .main-menu .menu > * {
-    font-size: 1.3rem;
-    font-weight: 400;
-    padding-top: 0.5rem;
-    padding-right: 12px;
-    color: var(--menu-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .navigation .main-menu .menu #menu-more {
-    color: var(--light-gray);
-    font-weight: 500;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-}
-
-/*화면이 414px 보다 작을 때*/
-@media screen and (max-width: 414px) {
-  .navigation {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    height: 30px;
-    width: 100%;
-    padding: 10px;
-    background-color: var(--white-color);
-    align-items: center;
-    overflow-y: visible;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  }
-
-  .navigation .right-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 0px;
-    padding-left: 0;
-    margin-right: 0;
-    padding-right: 20px;
-    margin-left: auto;
-    height: 100%;
-    width: 200px;
-  }
-
-  .navigation .right-top .dropdown {
-    position: relative;
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 10px;
-    left: 10px;
-    background-color: var(--white-color);
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
-    border-top: 1px solid var(--super-light-gray);
-    width: auto;
-    padding-bottom: 0px;
-  }
-
-  .navigation .right-top .dropdown .notification-drop-down {
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 0px;
-    width: 100vw;
-    margin: 10px 20px;
-  }
-
-  .navigation .member {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .navigation .member .right-top-icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 15px;
-    height: 15px;
-  }
-
-  .navigation #main-logo {
-    height: 2rem;
-    width: auto;
-  }
-
-  .navigation .right-top .navigation-search-and-private {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    height: 100%;
-    width: 120px;
-    flex-shrink: 0;
-    margin-left: auto;
-  }
-
-  .navigation .right-top .navigation-search-and-private .member #profile-img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .navigation-search-and-private #menu-hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--text-gray);
-    width: 15px;
-    height: 15px;
-  }
-
-  .navigation .right-top .dropdown {
-    left: 20px;
-  }
-
-  .navigation .right-top .dropdown .notification-contents {
     margin-top: 15px;
     font-size: 0.75rem;
     color: rgba(0, 0, 0, 0.25);
-    width: calc(100%);
-  }
+    /* overflow-y: scroll; */
+}
 
-  .notification-content {
+.navigation .right-top .dropdown .notification-contents>* {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: 500;
+    padding: 0;
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
-  }
+    margin-right: 0;
+}
 
-  .navigation .right-top .dropdown .notification-drop-down {
+.notification-content .comment-and-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 350px;
+    cursor: pointer;
+}
+
+.notification-content .close-icon {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}
+
+
+/* profile-drop-down */
+
+.navigation .right-top .dropdown .profile-drop-down {
     position: relative;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 0px;
-    width: 91vw;
-    margin: 10px 20px;
-  }
-
-  .notification-drop-down .notification-comment {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 17rem;
-    width: 70%;
-  }
-
-  .notification-drop-down .notification-time {
-    width: 20%;
-  }
-
-  .navigation .main-menu {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px;
-    margin: 0;
-    height: 120vh;
-    width: 150px;
-    bottom: 3px;
-    left: 20px;
-    box-shadow: -2px 6px 6px rgba(0, 0, 0, 0.25);
-    margin-right: auto;
-    background-color: var(--white-color);
-  }
-
-  .navigation .main-menu .menu {
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-  }
-
-  .navigation .main-menu .menu > * {
-    font-size: 1.3rem;
+    width: 166px;
+    font-size: 0.75rem;
     font-weight: 400;
-    padding-top: 0.5rem;
-    padding-right: 12px;
-    color: var(--menu-color);
+}
+
+.profile-drop-down .profile-drop-down-top {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+    font-size: 0.7rem;
+    padding: 0.3rem 1em 0.5rem 1rem;
+    background-color: var(--super-light-gray);
+    font-family: "Open Sans";
+    color: var(--text-light-gray);
+}
 
-  .navigation .main-menu .menu #menu-more {
-    color: var(--light-gray);
-    font-weight: 500;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
+.profile-drop-down .profile-drop-down-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--super-light-gray);
+}
+
+.profile-drop-down .profile-drop-down-bottom>li {
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 0px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.navigation .right-top .dropdown .profile-drop-down .profile-drop-down-bottom li a {
+    text-decoration: none;
+    color: var(--text-light-gray);
+}
+
+
+/*화면이 930px 보다 작을 때*/
+
+
+/* menus가 hamburger tab으로 변경 */
+
+@media screen and (max-width: 930px) {
+    .navigation .right-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 20px;
+        padding-left: 0;
+        margin-right: 40px;
+        margin-left: auto;
+        height: 100%;
+        width: 400px;
+    }
+    .navigation .right-top .navigation-search-and-private {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 250px;
+        flex-shrink: 0;
+    }
+    .navigation .member {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .navigation-search-and-private #menu-hamburger {
+        display: flex;
+        color: var(--text-gray);
+        width: 25px;
+        height: 25px;
+    }
+    .navigation .full-navigation-menu {
+        display: none;
+    }
+    .navigation .tab-navigation-menu {
+        display: flex;
+    }
+    .navigation .main-menu {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 10px;
+        margin: 0;
+        height: 120vh;
+        width: 250px;
+        bottom: 1px;
+        left: 20px;
+        box-shadow: -2px 6px 6px rgba(0, 0, 0, 0.25);
+        margin-right: auto;
+        background-color: var(--white-color);
+    }
+    .navigation .main-menu .menu {
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+    }
+    .navigation .main-menu .menu>* {
+        font-size: 1.5rem;
+        font-weight: 400;
+        padding-top: 1rem;
+        padding-right: 12px;
+        color: var(--menu-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .navigation .main-menu .menu #menu-more {
+        color: var(--light-gray);
+        font-weight: 500;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+}
+
+
+/*화면이 768px 보다 작을 때*/
+
+
+/* navigation height 감소 */
+
+
+/* icon size 감소 */
+
+
+/* dropdowns 조정 */
+
+/* 큰 화면의 모바일 환경에서 사용가능한 디자인 */
+
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        height: 30px;
+        width: 100%;
+        padding: 10px;
+        background-color: var(--white-color);
+        align-items: center;
+        overflow-y: visible;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+    .navigation #main-logo {
+        height: 2rem;
+        width: auto;
+    }
+    .navigation .right-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 20px;
+        padding-left: 0;
+        margin-right: 40px;
+        margin-left: auto;
+        height: 100%;
+        width: 400px;
+    }
+    .navigation .member .right-top-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 17px;
+        height: 17px;
+    }
+    .navigation-search-and-private #menu-hamburger {
+        display: flex;
+        color: var(--text-gray);
+        width: 20px;
+        height: 20px;
+    }
+    .navigation .right-top .navigation-search-and-private {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 200px;
+        flex-shrink: 0;
+    }
+    .navigation .right-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 20px;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: auto;
+        height: 100%;
+        width: 200px;
+    }
+    .navigation .right-top .dropdown {
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 10px;
+        left: 10px;
+        background-color: var(--white-color);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+        border-top: 1px solid var(--super-light-gray);
+        width: auto;
+        padding-bottom: 0px;
+    }
+    .navigation .right-top .dropdown .notification-drop-down {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0px;
+        width: 374px;
+        margin: 10px 20px;
+    }
+    .navigation .right-top .navigation-search-and-private .member #profile-img {
+        width: 30px;
+        height: 30px;
+    }
+    /* tab main menu size down */
+    .navigation .main-menu {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 10px;
+        margin: 0;
+        height: 120vh;
+        width: 200px;
+        bottom: 11px;
+        left: 20px;
+        box-shadow: -2px 6px 6px rgba(0, 0, 0, 0.25);
+        margin-right: auto;
+        background-color: var(--white-color);
+    }
+    .navigation .main-menu .menu {
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+    }
+    .navigation .main-menu .menu>* {
+        font-size: 1.3rem;
+        font-weight: 400;
+        padding-top: 0.5rem;
+        padding-right: 12px;
+        color: var(--menu-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .navigation .main-menu .menu #menu-more {
+        color: var(--light-gray);
+        font-weight: 500;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+}
+
+
+/*화면이 414px 보다 작을 때*/
+
+
+/* icon-size, 위치 변경 */
+
+
+/* hamburger tab size 변경 */
+
+/* 작은 화면의 모바일 환경에서 사용가능한 디자인 */
+
+
+@media screen and (max-width: 414px) {
+    .navigation {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        height: 30px;
+        width: 100%;
+        padding: 10px;
+        background-color: var(--white-color);
+        align-items: center;
+        overflow-y: visible;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+    .navigation .right-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 0px;
+        padding-left: 0;
+        margin-right: 0;
+        padding-right: 20px;
+        margin-left: auto;
+        height: 100%;
+        width: 200px;
+    }
+    .navigation .right-top .dropdown {
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 10px;
+        left: 10px;
+        background-color: var(--white-color);
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+        border-top: 1px solid var(--super-light-gray);
+        width: auto;
+        padding-bottom: 0px;
+    }
+    .navigation .right-top .dropdown .notification-drop-down {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0px;
+        width: 100vw;
+        margin: 10px 20px;
+    }
+    .navigation .member {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .navigation .member .right-top-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 15px;
+        height: 15px;
+    }
+    .navigation #main-logo {
+        height: 2rem;
+        width: auto;
+    }
+    .navigation .right-top .navigation-search-and-private {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        width: 120px;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+    .navigation .right-top .navigation-search-and-private .member #profile-img {
+        width: 25px;
+        height: 25px;
+    }
+    .navigation-search-and-private #menu-hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--text-gray);
+        width: 15px;
+        height: 15px;
+    }
+    .navigation .right-top .dropdown {
+        left: 20px;
+    }
+    .navigation .right-top .dropdown .notification-contents {
+        margin-top: 15px;
+        font-size: 0.75rem;
+        color: rgba(0, 0, 0, 0.25);
+        width: calc(100%);
+    }
+    .notification-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    .navigation .right-top .dropdown .notification-drop-down {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0px;
+        width: 91vw;
+        margin: 10px 20px;
+    }
+    .notification-drop-down .notification-comment {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 17rem;
+        width: 70%;
+    }
+    .notification-drop-down .notification-time {
+        width: 20%;
+    }
+    .navigation .main-menu {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 10px;
+        margin: 0;
+        height: 120vh;
+        width: 150px;
+        bottom: 3px;
+        left: 20px;
+        box-shadow: -2px 6px 6px rgba(0, 0, 0, 0.25);
+        margin-right: auto;
+        background-color: var(--white-color);
+    }
+    .navigation .main-menu .menu {
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+    }
+    .navigation .main-menu .menu>* {
+        font-size: 1.3rem;
+        font-weight: 400;
+        padding-top: 0.5rem;
+        padding-right: 12px;
+        color: var(--menu-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .navigation .main-menu .menu #menu-more {
+        color: var(--light-gray);
+        font-weight: 500;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
 }

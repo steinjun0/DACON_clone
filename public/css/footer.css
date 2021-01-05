@@ -80,6 +80,8 @@ ul .link-icons img {
   padding-right: 2rem;
 }
 
+/* dacon icon 삭제 */
+
 /*화면이 1200px 보다 작을 때*/
 @media screen and (max-width: 650px) {
   footer .dacon-footer-logo {

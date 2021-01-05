@@ -151,6 +151,10 @@ var requestMoreListFunction = function requestMoreList() {
   });
 };
 
+// competitions list 정보를 받아온 후에 화면을 구성해야 하기 떄문에
+// promise를 사용하고, resolve.then에서 vue를 생성한다.
+// competitions list는 dacon api 주소를 통해 받아온다.
+
 const promise = new Promise((resolve, reject) => {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", listAPIUrl_v, true);

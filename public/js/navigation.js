@@ -1,9 +1,10 @@
 //--------------- Main Menu ---------------
 
 var MainMenus = {
-  props: { menus: Array },
-  template: `
+    props: { menus: Array },
+    template: `
     <ul class="main-menu" id="main-menus">
+      <!-- using v-for to edit menus easily -->
       <li class="menu" v-for= "menu in menus">
         <a v-bind:href="menu.href"> {{menu.title}} </a>
       </li>
@@ -15,33 +16,34 @@ var MainMenus = {
 };
 
 var navigationMenu = {
-  template: `
+    template: `
     <div class="main-menus">
       <main-menus v-bind:menus="menus"></main-menus>
     </div>
   `,
-  components: { "main-menus": MainMenus },
-  data: function () {
-    return {
-      menus: [
-        { href: "competitions", title: "대회" },
-        { href: "codeshare", title: "코드 공유" },
-        { href: "forum", title: "포럼" },
-        { href: "hackathon.html", title: "교육" },
-        { href: "ranking.html", title: "랭킹" },
-      ],
-    };
-  },
+    components: { "main-menus": MainMenus },
+    data: function() {
+        return {
+            // using v-for to edit menus easily
+            menus: [
+                { href: "competitions", title: "대회" },
+                { href: "codeshare", title: "코드 공유" },
+                { href: "forum", title: "포럼" },
+                { href: "hackathon.html", title: "교육" },
+                { href: "ranking.html", title: "랭킹" },
+            ],
+        };
+    },
 };
 
 //--------------- Right Top ---------------
 //--------------- DropDowns ---------------
 
 var profileDropDown = {
-  props: {
-    userName: String,
-  },
-  template: `
+    props: {
+        userName: String,
+    },
+    template: `
     <div class="profile-drop-down">
       <div class="profile-drop-down-top"> {{userName}} </div>
       <ul class="profile-drop-down-bottom">
@@ -54,18 +56,18 @@ var profileDropDown = {
 };
 
 var notificationDropDown = {
-  props: {
-    notificationCount: Number,
-    notifications: Array,
-  },
-  data: function () {
-    return {
-      unread: 2,
-      index: 0,
-    };
-  },
-  // style="cursor:pointer;" a 태그가 아니더라도 마우스 커서를 손 모양으로 변경
-  template: `
+    props: {
+        notificationCount: Number,
+        notifications: Array,
+    },
+    data: function() {
+        return {
+            unread: 2,
+            index: 0,
+        };
+    },
+    // style="cursor:pointer;" a 태그가 아니더라도 마우스 커서를 손 모양으로 변경
+    template: `
 
   <div class="notification-drop-down">
     <div class="notification-drop-down-top">
@@ -129,45 +131,47 @@ var notificationDropDown = {
   `,
 };
 
+
+//--------------- HamburgerTab for responsive ---------------
+
 var hamburgerMenuTab = {
-  // style="cursor:pointer;" a 태그가 아니더라도 마우스 커서를 손 모양으로 변경
-  template: `
+    // style="cursor:pointer;" a 태그가 아니더라도 마우스 커서를 손 모양으로 변경
+    template: `
     <div class="hamberger-menu-tab">
       <navigation-menu></navigation-menu>
     </div>
   `,
-  components: {
-    "navigation-menu": navigationMenu,
-  },
+    components: {
+        "navigation-menu": navigationMenu,
+    },
 };
 
 //--------------- Right Top Composition ---------------
 
 var navigationSearchAndPrivate = {
-  data: function () {
-    return {
-      notificationDropDownOpen: false,
-      profileDropDownOpen: false,
-      hamburgerMenuOpen: false,
-      unread: 2,
-      notifications: [
-        {
-          content: "데이콘에 가입하신 것을 진심으로 환경합니다.",
-          time: "1달전",
-          isRead: false,
-          isShow: true,
-        },
-        {
-          content: "컴퓨터 비전 학습 경진대회 대회종료가 임박하였습니다.",
-          time: "2주전",
-          isRead: false,
-          isShow: true,
-        },
-      ],
-    };
-  },
-  // img의 확장자가 현재 없음. 하지만 img태그 내부이기 때문에 작동함. (site 에서 받아올 때 확장자가 없음)
-  template: `
+    data: function() {
+        return {
+            notificationDropDownOpen: false,
+            profileDropDownOpen: false,
+            hamburgerMenuOpen: false,
+            unread: 2,
+            notifications: [{
+                    content: "데이콘에 가입하신 것을 진심으로 환경합니다.",
+                    time: "1달전",
+                    isRead: false,
+                    isShow: true,
+                },
+                {
+                    content: "컴퓨터 비전 학습 경진대회 대회종료가 임박하였습니다.",
+                    time: "2주전",
+                    isRead: false,
+                    isShow: true,
+                },
+            ],
+        };
+    },
+    // profile-img src 파일의 확장자가 현재 없음. 하지만 img태그 내부이기 때문에 작동함. (site 에서 받아올 때 확장자가 없음)
+    template: `
   
   <div class="right-top">
   
@@ -191,7 +195,11 @@ var navigationSearchAndPrivate = {
         /> 
       </div>
     </div>
+
     <div class="dropdown">
+    
+    <!-- notification-drop-down emit('readContent', index) -->
+
       <notification-drop-down 
         v-on:check-all="checkAll"
         v-on:delete-all="deleteAll"
@@ -209,113 +217,110 @@ var navigationSearchAndPrivate = {
     <hamburger-menu-tab class="tab-navigation-menu" v-if="hamburgerMenuOpen"></hamburger-menu-tab>
   </div>
   `,
-  components: {
-    "notification-drop-down": notificationDropDown,
-    "profile-drop-down": profileDropDown,
-    "hamburger-menu-tab": hamburgerMenuTab,
-  },
+    components: {
+        "notification-drop-down": notificationDropDown,
+        "profile-drop-down": profileDropDown,
+        "hamburger-menu-tab": hamburgerMenuTab,
+    },
 
-  methods: {
-    checkAll: function () {
-      this.unread = 0;
-      for (i = 0; i < this.notifications.length; i++) {
-        this.notifications[i].isRead = true;
-      }
+    methods: {
+        //--------------- Notification Function --------------- 
+        checkAll: function() {
+            this.unread = 0;
+            for (i = 0; i < this.notifications.length; i++) {
+                this.notifications[i].isRead = true;
+            }
+        },
+        deleteAll: function() {
+            for (i = 0; i < this.notifications.length; i++) {
+                this.notifications[i].isRead = true;
+                this.notifications[i].isShow = false;
+                this.unread = 0;
+                for (j = 0; j < this.notifications.length; j++) {
+                    if (this.notifications[j].isRead == false) this.unread += 1;
+                }
+            }
+        },
+        readContent: function(index) {
+            this.notifications[index].isRead = true;
+            this.unread = 0;
+            for (i = 0; i < this.notifications.length; i++) {
+                if (this.notifications[i].isRead == false) this.unread += 1;
+            }
+        },
+
+        //--------------- noti-profile DropDown function ---------------
+        // notification and profile dropDowns should be exclusive
+        closeNotiAndProfile: function() {
+            this.notificationDropDownOpen = false;
+            this.profileDropDownOpen = false;
+        },
+        closeTabMenu: function() {
+            this.hamburgerMenuOpen = false;
+        },
+        controlNotiAndProfile: function(flag) {
+            if (flag == "notification") {
+                if (
+                    // noti: Off, profile: On => on, Off
+                    this.notificationDropDownOpen == false &&
+                    this.profileDropDownOpen == true
+                ) {
+                    this.notificationDropDownOpen = true;
+                    this.profileDropDownOpen = false;
+                } else if (
+                    // noti: On, profile: Off => Off, Off
+                    this.notificationDropDownOpen == true &&
+                    this.profileDropDownOpen == false
+                ) {
+                    this.notificationDropDownOpen = false;
+                    this.profileDropDownOpen = false;
+                } else if (
+                    // noti: Off, profile: Off => On, Off
+                    this.notificationDropDownOpen == false &&
+                    this.profileDropDownOpen == false
+                ) {
+                    this.notificationDropDownOpen = true;
+                    this.profileDropDownOpen = false;
+                }
+            } else if (flag == "profile") {
+                if (
+                    // noti: Off, profile: On => Off, Off
+                    this.notificationDropDownOpen == false &&
+                    this.profileDropDownOpen == true
+                ) {
+                    this.notificationDropDownOpen = false;
+                    this.profileDropDownOpen = false;
+                } else if (
+                    // noti: On, profile: Off => Off, On
+                    this.notificationDropDownOpen == true &&
+                    this.profileDropDownOpen == false
+                ) {
+                    this.notificationDropDownOpen = false;
+                    this.profileDropDownOpen = true;
+                } else if (
+                    // noti: Off, profile: Off => Off, On
+                    this.notificationDropDownOpen == false &&
+                    this.profileDropDownOpen == false
+                ) {
+                    this.notificationDropDownOpen = false;
+                    this.profileDropDownOpen = true;
+                }
+            }
+            this.closeTabMenu();
+        },
+        switchHamburgerMenu: function() {
+            this.hamburgerMenuOpen = !this.hamburgerMenuOpen;
+            this.closeNotiAndProfile();
+        },
     },
-    deleteAll: function () {
-      for (i = 0; i < this.notifications.length; i++) {
-        this.notifications[i].isRead = true;
-        this.notifications[i].isShow = false;
-        this.unread = 0;
-        for (j = 0; j < this.notifications.length; j++) {
-          if (this.notifications[j].isRead == false) this.unread += 1;
-        }
-      }
-    },
-    readContent: function (index) {
-      this.notifications[index].isRead = true;
-      this.unread = 0;
-      for (i = 0; i < this.notifications.length; i++) {
-        console.log(this.notifications[i].isRead);
-        if (this.notifications[i].isRead == false) this.unread += 1;
-      }
-    },
-    switchnotificationDropDown: function () {
-      this.notificationDropDownOpen = !this.notificationDropDownOpen;
-    },
-    switchProfileDropDown: function () {
-      this.profileDropDownOpen = !this.profileDropDownOpen;
-    },
-    closeNotiAndProfile: function () {
-      this.notificationDropDownOpen = false;
-      this.profileDropDownOpen = false;
-      console.log("closeall");
-    },
-    closeTabMenu: function () {
-      this.hamburgerMenuOpen = false;
-    },
-    controlNotiAndProfile: function (flag) {
-      if (flag == "notification") {
-        if (
-          // noti: Off, profile: On => on, Off
-          this.notificationDropDownOpen == false &&
-          this.profileDropDownOpen == true
-        ) {
-          this.notificationDropDownOpen = true;
-          this.profileDropDownOpen = false;
-        } else if (
-          // noti: On, profile: Off => Off, Off
-          this.notificationDropDownOpen == true &&
-          this.profileDropDownOpen == false
-        ) {
-          this.notificationDropDownOpen = false;
-          this.profileDropDownOpen = false;
-        } else if (
-          // noti: Off, profile: Off => On, Off
-          this.notificationDropDownOpen == false &&
-          this.profileDropDownOpen == false
-        ) {
-          this.notificationDropDownOpen = true;
-          this.profileDropDownOpen = false;
-        }
-      } else if (flag == "profile") {
-        if (
-          // noti: Off, profile: On => Off, Off
-          this.notificationDropDownOpen == false &&
-          this.profileDropDownOpen == true
-        ) {
-          this.notificationDropDownOpen = false;
-          this.profileDropDownOpen = false;
-        } else if (
-          // noti: On, profile: Off => Off, On
-          this.notificationDropDownOpen == true &&
-          this.profileDropDownOpen == false
-        ) {
-          this.notificationDropDownOpen = false;
-          this.profileDropDownOpen = true;
-        } else if (
-          // noti: Off, profile: Off => Off, On
-          this.notificationDropDownOpen == false &&
-          this.profileDropDownOpen == false
-        ) {
-          this.notificationDropDownOpen = false;
-          this.profileDropDownOpen = true;
-        }
-      }
-      this.closeTabMenu();
-    },
-    switchHamburgerMenu: function () {
-      this.hamburgerMenuOpen = !this.hamburgerMenuOpen;
-      this.closeNotiAndProfile();
-      console.log("switchHAm");
-    },
-  },
 };
 
+//--------------- navigationVue ---------------
+
 var navigationVue = new Vue({
-  el: "#navigation",
-  components: {
-    "navigation-search-and-private": navigationSearchAndPrivate,
-    "navigation-menu": navigationMenu,
-  },
+    el: "#navigation",
+    components: {
+        "navigation-search-and-private": navigationSearchAndPrivate,
+        "navigation-menu": navigationMenu,
+    },
 });

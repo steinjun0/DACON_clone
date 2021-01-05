@@ -27,10 +27,6 @@
   </head>
 
   <!--navigation-->
-  <style>
-    body {
-    }
-  </style>
   <body>
     <nav id="navigation" class="navigation">
       <a id="main-logo" class="member" href="main.html">
@@ -70,14 +66,16 @@
       </div>
     </div>
 
+    <!-- footer doesn't need vue.js -->
     <div class="footer-wrap">
       <footer>
         <img
           class="dacon-footer-logo"
           src="/img/dacon-footer-logo.svg"
-          alt=""
+          alt="dacon-footer-logo"
         />
         <div class="footer-text">
+          <!-- vertical list -->
           <ul>
             <li class="policies">
               <span class="modal-btn" @click="personalInfoShow = true">
@@ -93,7 +91,11 @@
               of Korea
             </li>
             <li class="link-icons">
-              <img src="/img/e-mail-icon.svg" alt="e-mail" />
+              <img
+                src="/img/e-mail-icon.svg"
+                alt="e-mail"
+                style="cursor: pointer"
+              />
               <a href="https://www.facebook.com/dacon.io/" target="_blank">
                 <img src="/img/facebook-icon.svg" alt="facebook" />
               </a>
