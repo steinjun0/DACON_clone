@@ -1,23 +1,3 @@
-var statusElement = {
-  props: {},
-  template: `
-  `,
-  data: function () {
-    return {
-      numberComma: "",
-    };
-  },
-  methods: {
-    AddComma: function () {
-      var regexp = /\B(?=(\d{3})+(?!\d))/g;
-      this.numberComma = this.number.toString().replace(regexp, ",");
-    },
-  },
-  created: function () {
-    this.AddComma();
-  },
-};
-
 var competitionList = {
   props: {
     listData: Array,
@@ -95,9 +75,6 @@ var competitionList = {
       </li>
     </ul>
   `,
-  components: {
-    // "status-element": statusElement,
-  },
 };
 
 var listAPIUrl_v = "https://newapi.dacon.io/main/public_list_all_scroll/0";
